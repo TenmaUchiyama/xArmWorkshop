@@ -2,7 +2,7 @@ import time
 from xarm.wrapper import XArmAPI
 
 """
-ロボットアームのエンドエフェクタを初期値に戻す処理のやつ。
+ロボットアームのエンドエフェクタを初期値に戻すための処理。
 """
 arm = XArmAPI("192.168.1.199")
 arm.motion_enable(enable=True)
