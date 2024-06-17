@@ -31,14 +31,11 @@ speed = 50 #モーターのスピードを設定する。
 #新しい位置がワークスペース内にあるかどうかを確認する関数
 #ロボットアームが環境の障害に衝突しないようにするため。
 def CheckIfNewPositionInWorkspace(x,y,z):
-    if (x > 680 ) or (x < 300 ) :
-        print("x: ", x)
+    if x > 680  or x < 300:
         return False
     if y < -230 or y > 420:
-        print("y: ", y)
         return False
     if z < 94 or z > 500:
-        print("z: ", z)
         return False
     return True
 
