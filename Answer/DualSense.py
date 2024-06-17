@@ -5,24 +5,15 @@ import math
 
 
 class DualSenseController(pydualsense.pydualsense): 
-
-
-
     def __init__(self):
         super().__init__()
 
         #初期化する
         self.init()
-
-
-        self.is_joystick_in = False
+      
         self.joystick_left_val = [0, 0]
         self.joystick_right_val = [0, 0]
-        self.r1_state = False
-        self.home_button = False
-
-
-
+      
         #イベントハンドラを追加する
         self.left_joystick_changed += self.on_joystick_left
         self.right_joystick_changed += self.on_joystick_right
@@ -30,7 +21,7 @@ class DualSenseController(pydualsense.pydualsense):
 
 
     def on_joystick(self,stateX,stateY):
-        #128マックスだから、128で割って0-1に正規化する。また、小数点第一位までに丸める
+        #128マックスだから、128で割って0-5に正規化する。また、小数点第一位までに丸める
         stateX_norm = math.floor(( stateX / 128)* 50) / 10
         stateY_norm = math.floor(( stateY / 128)* 50) / 10
     
@@ -54,11 +45,7 @@ class DualSenseController(pydualsense.pydualsense):
     
 
 
-    
-    def r1_pressed(self, state):
-        self.r1_state = state
-
-    
+   
     
 
 
