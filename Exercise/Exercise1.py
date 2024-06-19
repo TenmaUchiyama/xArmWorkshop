@@ -59,7 +59,7 @@ def main():
 
     x = 500
     y = -100 
-    z = 700
+    z = 500
       
     time.sleep(1) #移動後に1秒待つ。
     if CheckIfNewPositionInWorkspace(x,y,z):
@@ -69,8 +69,8 @@ def main():
         print("座標はワークスペース外です。")
     
     x = 500
-    y = 400
-    z = 700
+    y = 200
+    z = 500
     time.sleep(1) #移動後に1秒待つ。
     if CheckIfNewPositionInWorkspace(x,y,z):
         print("Moving")
@@ -80,7 +80,7 @@ def main():
     time.sleep(1) #移動後に1秒待つ。
 
     x = 500
-    y = 400
+    y = 200
     z = 200
     if CheckIfNewPositionInWorkspace(x,y,z):
         print("Moving")
