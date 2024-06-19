@@ -40,7 +40,7 @@ def CheckIfNewPositionInWorkspace(x,y,z):
         return False
     if y < -230 or y > 420:
         return False
-    if z < 94 or z > 500:
+    if z < 94 or z > 550:
         return False
     return True
 
