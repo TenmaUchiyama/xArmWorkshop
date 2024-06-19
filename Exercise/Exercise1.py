@@ -23,7 +23,7 @@ arm.motion_enable(enable=True) #モーション有効化して動かせるよう
 arm.set_mode(0) #ポジション制御モードに設定する。
 arm.set_state(state=0) #ステート設定: 0 = スタートモーション
 
-speed = 50 #アームのスピードを設定する。
+speed = 100 #アームのスピードを設定する。
 
 #######################################
 
@@ -60,18 +60,37 @@ def main():
     
   
     time.sleep(1) #移動後に1秒待つ。
-
-  
+    z += 300
+    if CheckIfNewPositionInWorkspace(x,y,z):
+        print("Moving")
+        arm.set_position(x,y,z, speed= speed, wait=True )
+    else: 
+        print("座標はワークスペース外です。")
     
     time.sleep(1) #移動後に1秒待つ。
-
+    y += 300
+    if CheckIfNewPositionInWorkspace(x,y,z):
+        print("Moving")
+        arm.set_position(x,y,z, speed= speed, wait=True )
+    else: 
+        print("座標はワークスペース外です。")
    
     
     time.sleep(1) #移動後に1秒待つ。
-
+    z -= 300
+    if CheckIfNewPositionInWorkspace(x,y,z):
+        print("Moving")
+        arm.set_position(x,y,z, speed= speed, wait=True )
+    else: 
+        print("座標はワークスペース外です。")
     
     time.sleep(1) #移動後に1秒待つ。
-
+    y -= 300
+    if CheckIfNewPositionInWorkspace(x,y,z):
+        print("Moving")
+        arm.set_position(x,y,z, speed= speed, wait=True )
+    else: 
+        print("座標はワークスペース外です。")
 
 
     
