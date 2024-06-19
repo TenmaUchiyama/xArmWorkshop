@@ -79,20 +79,73 @@ def SetPosition(x,y,z,roll,pitch,yaw):
     else:
         print(" position is out of workspace")
 
+def PlusPosition(d_x,d_y,d_z):
+    global x, y, z
+    # x
+    if d_x < 0:
+        d_x = -d_x
+        for i in range(d_x):
+            x -= 1
+            SetPosition(x,y,z,roll,pitch,yaw)
+    else:
+        for i in range(d_x):
+            x += 1
+            SetPosition(x,y,z,roll,pitch,yaw)
+    
+    # y
+    if d_y < 0:
+        d_y = -d_y
+        for i in range(d_y):
+            x -= 1
+            SetPosition(x,y,z,roll,pitch,yaw)
+    else:
+        for i in range(d_y):
+            x += 1
+            SetPosition(x,y,z,roll,pitch,yaw)
+    
+    # z
+    if d_z < 0:
+        d_z = -d_z
+        for i in range(d_z):
+            x -= 1
+            SetPosition(x,y,z,roll,pitch,yaw)
+    else:
+        for i in range(d_z):
+            x += 1
+            SetPosition(x,y,z,roll,pitch,yaw)
 
+
+_,current_position = arm.get_position() #現在のアームの位置を取得する。 return: [x,y,z,roll,pitch,yaw]
+x,y,z,roll,pitch,yaw = current_position #展開して各変数に代入する。
 
 while True:
 
     if keyboard.is_pressed('down'):
-        print("up key pressed")
+        print("down key pressed")
+        PlusPosition(0, 0, -5)
 
+    if keyboard.is_pressed('up'):
+        print("up key pressed")
+        PlusPosition(0, 0, 5)
 
     if keyboard.is_pressed("w"):
         print("w key pressed")
+        PlusPosition(-5, 0, 0)
     
+    if keyboard.is_pressed("a"):
+        print("a key pressed")
+        PlusPosition(0, -5, 0)
+    
+    if keyboard.is_pressed("s"):
+        print("s key pressed")
+        PlusPosition(5, 0, 0)
+    
+    if keyboard.is_pressed("d"):
+        print("d key pressed")
+        PlusPosition(0, 5, 0)
 
-
-
+    if keyboard.is_pressed("space"):
+        OperateGripper()
         
     if keyboard.is_pressed('esc'):
         
