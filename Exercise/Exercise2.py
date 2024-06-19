@@ -96,22 +96,22 @@ def PlusPosition(d_x,d_y,d_z):
     if d_y < 0:
         d_y = -d_y
         for i in range(d_y):
-            x -= 1
+            y -= 1
             SetPosition(x,y,z,roll,pitch,yaw)
     else:
         for i in range(d_y):
-            x += 1
+            y += 1
             SetPosition(x,y,z,roll,pitch,yaw)
     
     # z
     if d_z < 0:
         d_z = -d_z
         for i in range(d_z):
-            x -= 1
+            z -= 1
             SetPosition(x,y,z,roll,pitch,yaw)
     else:
         for i in range(d_z):
-            x += 1
+            z += 1
             SetPosition(x,y,z,roll,pitch,yaw)
 
 
