@@ -49,10 +49,10 @@ isGripperOpen = False
 def OperateGripper():
     global isGripperOpen
     if(isGripperOpen):
-        arm.set_gripper_position(320, wait=False)
+        arm.set_gripper_position(320, wait=True)
         isGripperOpen = False
     else:
-        arm.set_gripper_position(800, wait=False)
+        arm.set_gripper_position(800, wait=True)
         isGripperOpen = True
         
 #######################################
