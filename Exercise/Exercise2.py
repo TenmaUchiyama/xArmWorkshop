@@ -118,6 +118,10 @@ while True:
         for i in range(5):
             y += 1
             SetPosition(x,y,z,roll,pitch,yaw)
+    
+    if keyboard.is_pressed("space"):
+        print("space key pressed")
+        OperateGripper()
         
     if keyboard.is_pressed('esc'):
         
