@@ -47,11 +47,12 @@ arm.set_gripper_speed(3000)
 isGripperOpen = False
 
 def OperateGripper():
+    global isGripperOpen
     if(isGripperOpen):
         arm.set_gripper_position(320, wait=False)
         isGripperOpen = False
     else:
-        arm.set_gripper_position(320, wait=False)
+        arm.set_gripper_position(800, wait=False)
         isGripperOpen = True
         
 #######################################
@@ -84,7 +85,7 @@ def SetPosition(x,y,z,roll,pitch,yaw):
 while True:
 
     if keyboard.is_pressed('down'):
-        print("up key pressed")
+        print("down key pressed")
 
 
     if keyboard.is_pressed("w"):
