@@ -112,7 +112,9 @@ while True:
         print("d key pressed")
         y += 5
     
-
+    if keyboard.is_pressed("space"):
+        print("d key pressed")
+        OperateGripper()
 
         
     if keyboard.is_pressed('esc'):
