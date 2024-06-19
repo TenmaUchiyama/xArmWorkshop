@@ -51,7 +51,7 @@ def OperateGripper():
         arm.set_gripper_position(320, wait=False)
         isGripperOpen = False
     else:
-        arm.set_gripper_position(320, wait=False)
+        arm.set_gripper_position(800, wait=False)
         isGripperOpen = True
         
 #######################################
