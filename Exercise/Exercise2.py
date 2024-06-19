@@ -89,10 +89,35 @@ while True:
 
     if keyboard.is_pressed("w"):
         print("w key pressed")
-    
+        _,current_position = arm.get_position() #現在のアームの位置を取得する。 return: [x,y,z,roll,pitch,yaw]
+        x,y,z,roll,pitch,yaw = current_position #展開して各変数に代入する。
+        for i in range(5):
+            x -= 1
+            SetPosition(x,y,z,roll,pitch,yaw)
 
+    if keyboard.is_pressed("s"):
+        print("s key pressed")
+        _,current_position = arm.get_position() #現在のアームの位置を取得する。 return: [x,y,z,roll,pitch,yaw]
+        x,y,z,roll,pitch,yaw = current_position #展開して各変数に代入する。
+        for i in range(5):
+            x += 1
+            SetPosition(x,y,z,roll,pitch,yaw) 
+            
+    if keyboard.is_pressed("a"):
+        print("a key pressed")
+        _,current_position = arm.get_position() #現在のアームの位置を取得する。 return: [x,y,z,roll,pitch,yaw]
+        x,y,z,roll,pitch,yaw = current_position #展開して各変数に代入する。
+        for i in range(5):
+            y -= 1
+            SetPosition(x,y,z,roll,pitch,yaw)
 
-
+    if keyboard.is_pressed("d"):
+        print("d key pressed")
+        _,current_position = arm.get_position() #現在のアームの位置を取得する。 return: [x,y,z,roll,pitch,yaw]
+        x,y,z,roll,pitch,yaw = current_position #展開して各変数に代入する。
+        for i in range(5):
+            y += 1
+            SetPosition(x,y,z,roll,pitch,yaw)
         
     if keyboard.is_pressed('esc'):
         
