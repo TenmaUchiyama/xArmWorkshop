@@ -84,13 +84,24 @@ def SetPosition(x,y,z,roll,pitch,yaw):
 while True:
 
     if keyboard.is_pressed('down'):
-        print("up key pressed")
+        z = z - 5
+        SetPosition(x,y,z,roll,pitch,yaw)
+        print("down key pressed")
 
+    if keyboard.is_pressed('up'):
+        print("up key pressed")
 
     if keyboard.is_pressed("w"):
         print("w key pressed")
     
+    if keyboard.is_pressed("s"):
+        print("s key pressed")
 
+    if keyboard.is_pressed("a"):
+        print("a key pressed")
+
+    if keyboard.is_pressed("d"):
+        print("d key pressed")
 
 
         
