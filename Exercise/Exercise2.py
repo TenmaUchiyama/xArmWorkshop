@@ -47,6 +47,7 @@ arm.set_gripper_speed(3000)
 isGripperOpen = False
 
 def OperateGripper():
+    global isGripperOpen
     if(isGripperOpen):
         arm.set_gripper_position(320, wait=False)
         isGripperOpen = False
