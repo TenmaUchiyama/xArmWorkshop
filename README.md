@@ -100,7 +100,7 @@ Github Desktop に戻る前に、クローンしたいレポジトリの URL を
 これをクリックすると Github に変更が反映されます。
 
 <br>
-<img src="./assets/Push.png" width="500">
+<img src="./assets/Push.png" width="700">
 <br>
 
 Github にて確認してみます。レポジトリを開いて、自分のブランチを選択すると、先ほどローカルで作成したファイルが、Github に反映されているのが確認できます。
