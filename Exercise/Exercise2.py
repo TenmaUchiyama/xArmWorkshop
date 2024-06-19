@@ -81,16 +81,37 @@ def SetPosition(x,y,z,roll,pitch,yaw):
 
 
 
+_,current_position = arm.get_position() #現在のアームの位置を取得する。 return: [x,y,z,roll,pitch,yaw]
+x,y,z,roll,pitch,yaw = current_position #展開して各変数に代入する。
+
+
+
 while True:
 
     if keyboard.is_pressed('down'):
+        print("down key pressed")
+        z -= 5
+    
+    if keyboard.is_pressed("up"):
         print("up key pressed")
-
+        z += 5
 
     if keyboard.is_pressed("w"):
         print("w key pressed")
+        x -= 5
     
-
+    if keyboard.is_pressed("a"):
+        print("a key pressed")
+        y -= 5
+        
+    if keyboard.is_pressed("s"):
+        print("s key pressed")
+        x += 5
+    
+    if keyboard.is_pressed("d"):
+        print("d key pressed")
+        y += 5
+    
 
 
         
@@ -98,6 +119,8 @@ while True:
         
         print("Exiting...")
         break
+    
+    SetPosition(x,y,z,roll,pitch,yaw)
 
     # 処理が反映される間隔を指定
     time.sleep(0.05)
