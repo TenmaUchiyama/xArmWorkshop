@@ -57,20 +57,40 @@ def main():
     else: 
         print("座標はワークスペース外です。")
 
-    
-  
     time.sleep(1) #移動後に1秒待つ。
 
-  
+    z = z + 500
+    if CheckIfNewPositionInWorkspace(x,y,z):
+        print("Moving")
+        arm.set_position(x,y,z, speed= speed, wait=True )
+    else: 
+        print("座標はワークスペース外です。")
+    
+    time.sleep(1) #移動後に1秒待つ。
+    y = y + 500
+    if CheckIfNewPositionInWorkspace(x,y,z):
+        print("Moving")
+        arm.set_position(x,y,z, speed= speed, wait=True )
+    else: 
+        print("座標はワークスペース外です。")
+        
+    z = z - 500
+    time.sleep(1) #移動後に1秒待つ。
+
+    if CheckIfNewPositionInWorkspace(x,y,z):
+        print("Moving")
+        arm.set_position(x,y,z, speed= speed, wait=True )
+    else: 
+        print("座標はワークスペース外です。")
     
     time.sleep(1) #移動後に1秒待つ。
 
-   
-    
-    time.sleep(1) #移動後に1秒待つ。
-
-    
-    time.sleep(1) #移動後に1秒待つ。
+    z = z - 500
+    if CheckIfNewPositionInWorkspace(x,y,z):
+        print("Moving")
+        arm.set_position(x,y,z, speed= speed, wait=True )
+    else: 
+        print("座標はワークスペース外です。")
 
 
 
