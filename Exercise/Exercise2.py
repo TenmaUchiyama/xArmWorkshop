@@ -80,20 +80,38 @@ def SetPosition(x,y,z,roll,pitch,yaw):
         print(" position is out of workspace")
 
 
-
 while True:
+    _,current_position = arm.get_position() #現在のアームの位置を取得する。 return: [x,y,z,roll,pitch,yaw]
+    x,y,z,roll,pitch,yaw = current_position #展開して各変数に代入する。
+   
+    if (keyboard.is_pressed('w')):
+        x -= 5
+        SetPosition(x,y,z,roll,pitch,yaw)
 
-    if keyboard.is_pressed('down'):
-        print("up key pressed")
+    if (keyboard.is_pressed('s')):
+        x += 5
+        SetPosition(x,y,z,roll,pitch,yaw)
+
+    if (keyboard.is_pressed('a')):
+        y -= 5
+        SetPosition(x,y,z,roll,pitch,yaw)
+
+    if (keyboard.is_pressed('d')):
+        y += 5
+        SetPosition(x,y,z,roll,pitch,yaw)
 
 
-    if keyboard.is_pressed("w"):
-        print("w key pressed")
-    
+    if (keyboard.is_pressed('up')):
+        z += 5
+        SetPosition(x,y,z,roll,pitch,yaw)
 
+    if (keyboard.is_pressed('down')):
+        z -= 5
+        SetPosition(x,y,z,roll,pitch,yaw)
 
+    if (keyboard.is_pressed('space')):
+        OperateGripper()
 
-        
     if keyboard.is_pressed('esc'):
         
         print("Exiting...")
