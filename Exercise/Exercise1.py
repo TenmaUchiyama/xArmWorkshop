@@ -10,7 +10,7 @@ Exercise 1:
 この演習では、ロボットアームのエンドエフェクターを1周回して四角形を描いていただきます
 
 ヒント：
-Position_Sampleの流れを参考に,Z軸方向に500mm, Y軸方向に500mm, Z軸方向に-500mm, Y軸方向に-500mmで順番に移動する。
+Position_Sampleの流れを参考に,Z軸方向に300mm, Y軸方向に300mm, Z軸方向に-300mm, Y軸方向に-300mmで順番に移動する。
 
 """
 
@@ -59,7 +59,7 @@ def main():
 
     time.sleep(1) #移動後に1秒待つ。
 
-    z = z + 500
+    z = z + 300
     if CheckIfNewPositionInWorkspace(x,y,z):
         print("Moving")
         arm.set_position(x,y,z, speed= speed, wait=True )
@@ -67,14 +67,14 @@ def main():
         print("座標はワークスペース外です。")
     
     time.sleep(1) #移動後に1秒待つ。
-    y = y + 500
+    y = y + 300
     if CheckIfNewPositionInWorkspace(x,y,z):
         print("Moving")
         arm.set_position(x,y,z, speed= speed, wait=True )
     else: 
         print("座標はワークスペース外です。")
         
-    z = z - 500
+    z = z - 300
     time.sleep(1) #移動後に1秒待つ。
 
     if CheckIfNewPositionInWorkspace(x,y,z):
@@ -85,7 +85,7 @@ def main():
     
     time.sleep(1) #移動後に1秒待つ。
 
-    z = z - 500
+    y = y - 300
     if CheckIfNewPositionInWorkspace(x,y,z):
         print("Moving")
         arm.set_position(x,y,z, speed= speed, wait=True )
