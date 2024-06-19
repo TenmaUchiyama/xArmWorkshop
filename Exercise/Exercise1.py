@@ -58,24 +58,24 @@ def main():
         print("座標はワークスペース外です。")
 
 
-    z += 500
+    z += 300
     if CheckIfNewPositionInWorkspace(x,y,z): #新しい値がworkspaceに存在するかを調べる。
         arm.set_position(x,y,z, speed= speed, wait=True ) #ポジションを指定する。 
     time.sleep(1) #移動後に1秒待つ。
 
   
-    y += 500
+    y += 300
     if CheckIfNewPositionInWorkspace(x,y,z): #新しい値がworkspaceに存在するかを調べる。
         arm.set_position(x,y,z, speed= speed, wait=True ) #ポジションを指定する。
     time.sleep(1) #移動後に1秒待つ。
 
    
-    z -= 500
+    z -= 300
     if CheckIfNewPositionInWorkspace(x,y,z): #新しい値がworkspaceに存在するかを調べる。
         arm.set_position(x,y,z, speed= speed, wait=True ) #ポジションを指定する。
     time.sleep(1) #移動後に1秒待つ。
 
-    z -= 500
+    z -= 300
     if CheckIfNewPositionInWorkspace(x,y,z): #新しい値がworkspaceに存在するかを調べる。
         arm.set_position(x,y,z, speed= speed, wait=True ) #ポジションを指定する。
     time.sleep(1) #移動後に1秒待つ。
