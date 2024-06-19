@@ -5,6 +5,8 @@ import math
 
 
 class DualSenseController(pydualsense.pydualsense): 
+
+    
     def __init__(self):
         super().__init__()
 
