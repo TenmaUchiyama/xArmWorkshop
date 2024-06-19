@@ -115,7 +115,9 @@ while True:
         SetPosition(x,y,z,roll,pitch,yaw)
         print("d key pressed")
 
-
+    if keyboard.is_pressed("space"):
+        OperateGripper()
+        print("s key pressed")
         
     if keyboard.is_pressed('esc'):
         
