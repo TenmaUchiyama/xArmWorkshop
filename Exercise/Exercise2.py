@@ -89,18 +89,28 @@ while True:
         print("down key pressed")
 
     if keyboard.is_pressed('up'):
+         z = z + 5
+        SetPosition(x,y,z,roll,pitch,yaw)
         print("up key pressed")
 
     if keyboard.is_pressed("w"):
+         x = x - 5
+        SetPosition(x,y,z,roll,pitch,yaw)
         print("w key pressed")
     
     if keyboard.is_pressed("s"):
+        x = x + 5
+        SetPosition(x,y,z,roll,pitch,yaw)
         print("s key pressed")
 
     if keyboard.is_pressed("a"):
+        y = y - 5
+        SetPosition(x,y,z,roll,pitch,yaw)
         print("a key pressed")
 
     if keyboard.is_pressed("d"):
+        y = y + 5
+        SetPosition(x,y,z,roll,pitch,yaw)
         print("d key pressed")
 
 
