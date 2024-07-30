@@ -85,7 +85,7 @@ while not dualsense.state.touchBtn:
     dirZ = -right_joy[1]
     
 
-
+    
     _, position  = arm.get_position()
     x,y,z,roll,pitch,yaw = position
     SetPosition(x+dirX,y+dirY,z+dirZ,roll,pitch,yaw)
