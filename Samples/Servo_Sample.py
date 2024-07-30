@@ -7,7 +7,7 @@ from xarm.wrapper import XArmAPI
 
 
 """
-Servo_Sampleでは、サーボモードで単純にロボットアームを上方向に10cm移動するコードを書いています。
+Servo_Sampleでは、サーボモードで単純にロボットアームを上方向に100m移動するコードを書いています。
 サーボは基本的に小さい値を連続的に指定してやることで、滑らかに柔軟な動きに対応できるようになるものになります。
 
 処理の流れ：
@@ -52,7 +52,7 @@ def main():
     x,y,z,roll,pitch,yaw = current_position #展開して各変数に代入する。
    
     for i in range(100): 
-        z -= 1 # Z軸に1mm増やす
+        z += 1 # Z軸に1mm増やす
         if CheckIfNewPositionInWorkspace(x,y,z): #新しい座標がWorkspace内にあるか調べる。
             _, target_angle = arm.get_inverse_kinematics([x, y, z, roll, pitch, yaw]) #Inverse Kinematicsで、座標から7つそれぞれのモーターの角度を計算する
         
