@@ -7,7 +7,7 @@ from xarm.wrapper import XArmAPI
 
 
 """
-Position_Sampleでは、ポジションモードで単純にロボットアームを上方向に10cm移動するコードを書いています。
+Position_Sampleでは、ポジションモードで単純にロボットアームを上方向に100m移動するコードを書いています。
 
 
 処理の流れ：
@@ -47,7 +47,7 @@ def main():
     y = 200 
     z = 400
 
-
+    z += 100
     if CheckIfNewPositionInWorkspace(x,y,z): #新しい値がworkspaceに存在するかを調べる。
         arm.set_position(x,y,z, speed= speed, wait=True ) #ポジションを指定する。
 
