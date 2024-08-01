@@ -37,7 +37,7 @@ Dキーを押すと、ロボットアームがy軸方向に5mm(右)に移動し�
 arm = XArmAPI("192.168.1.199") #IP指定してロボットアームと接続。
 
 speed = 10 #モーターのスピードを設定する。
-arm.set_mode(1) #サーボモードに設定する。
+arm.set_mode(1) #サーボモードに設定する。サーボモードは角度の情報しか受け取れないので、座標位置情報は受け取れない
 arm.set_state(0)
 
 
@@ -78,10 +78,11 @@ def CheckIfNewPositionInWorkspace(x,y,z):
 
 
 #x,y,z,roll,pitch,yawの位置を受け取り、その位置にロボットアームを移動する関数があると楽。
+# rol pitch yaaw
 def SetPosition(x,y,z,roll,pitch,yaw):
-    if CheckIfNewPositionInWorkspace(x,y,z):
-        _, target_angle = arm.get_inverse_kinematics([x, y, z, roll, pitch, yaw])
-        arm.set_servo_angle_j(angles=target_angle, speed=speed)
+    if CheckIfNewPositionInWorkspace(x,y,z):# その新しいポジションがワークスペース内にあったらモーターがどう角度を制御するかを逆運動学で計算
+        _, target_angle = arm.get_inverse_kinematics([x, y, z, roll, pitch, yaw]) #Inverse Kinematicsで、座標から7つそれぞれのモーターの角度を計算する
+        arm.set_servo_angle_j(angles=target_angle, speed=speed) # モーターの角度を指定して操作する。
     else:
         print("position is out of workspace")
 
@@ -89,17 +90,45 @@ def SetPosition(x,y,z,roll,pitch,yaw):
 
 def main():
     isKeyPressed = False
-
+    # 現在位置の把握
+    _,current_position = arm.get_position() #現在のアームの位置を取得する。 return: [x,y,z,roll,pitch,yaw]
+    x,y,z,roll,pitch,yaw = current_position #展開して各変数に代入する。
+    
     while True:
 
-        if keyboard.is_pressed('down'): # 下矢印キーが押されたときの処理
+        if keyboard.is_pressed('up'): # 下矢印キーが押されたときの処理
+           print("up key pressed")
+           z+=5 
+           SetPosition(x,y,z,roll,pitch,yaw)
+
+        if keyboard.is_pressed('down'): # 上矢印キーが押されたときの処理
            print("down key pressed")
+           z-=5
+           SetPosition(x,y,z,roll,pitch,yaw)
      
-        if keyboard.is_pressed('w'): # wキーが押されたときの処理
+        if keyboard.is_pressed('w'): # wキーが押されたときの処理: 前進
             print("w key pressed")
+            x+=5
+            SetPosition(x,y,z,roll,pitch,yaw)
+        
+        if keyboard.is_pressed('s'): # sキーが押されたときの処理：奥
+            print("w key pressed")
+            x-=5
+            SetPosition(x,y,z,roll,pitch,yaw)
+        
+        if keyboard.is_pressed('a'): # aキーが押されたときの処理：右
+            print("w key pressed")
+            y-=5
+            SetPosition(x,y,z,roll,pitch,yaw)
+        
+        if keyboard.is_pressed('d'): # dキーが押されたときの処理：左
+            print("w key pressed")
+            y+=5
+            SetPosition(x,y,z,roll,pitch,yaw)
 
         if keyboard.is_pressed('space'): # スペースキーが押されたときの処理
             print("space key pressed")
+            OperateGripper()
     
 
         if keyboard.is_pressed('esc'): # escキーが押されたときの処理

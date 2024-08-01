@@ -11,8 +11,7 @@ arm.set_state(0)
 
 
 
-initialPosition = [79.700091, -66.500117, -81.000018, 22.399785, 186.499825, 59.599528, 113.000051]
 
-for i in range(1,8):
-    arm.set_servo_angle(servo_id=8-i, angle= initialPosition[8-i-1],speed=20, wait=False)
+code, angles = arm.get_servo_angle(is_radian=False)
 
+print(angles)

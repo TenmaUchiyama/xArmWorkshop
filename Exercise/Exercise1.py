@@ -17,6 +17,9 @@ Exercise 1:
 ヒント：
 Sampleの流れを参考に,Z軸方向に300m, y軸方向に300mm, Z軸方向に-300mm, X軸方向に-300mmで順番に移動する。
 
+
++z(上) +x(正面) +y(左)
+
 """
 
 
@@ -38,7 +41,7 @@ speed = 100 #モーターのスピードを設定する。
 def CheckIfNewPositionInWorkspace(x,y,z):
     if x > 680  or x < 300:
         return False
-    if y < -230 or y > 420:
+    if y < -330 or y > 420:
         return False
     if z < 94 or z > 550:
         return False
@@ -53,7 +56,16 @@ def main():
     x = 500
     y = -100 
     z = 200
+    # 初期ポイントに行く
+    if CheckIfNewPositionInWorkspace(x,y,z):
+        print("Moving")
+        arm.set_position(x,y,z, speed= speed, wait=True )
+    else: 
+        print("Position is out of workspace")
+    
+    time.sleep(1) # 移動後に1秒待つ
 
+    z+=200
     #移動先がワークスペース内か調べる
     if CheckIfNewPositionInWorkspace(x,y,z):
         print("Moving")
@@ -63,15 +75,32 @@ def main():
     
     time.sleep(1) # 移動後に1秒待つ
 
+    y-=200
+    if CheckIfNewPositionInWorkspace(x,y,z):
+        print("Moving")
+        arm.set_position(x,y,z, speed= speed, wait=True )
+    else: 
+        print("Position is out of workspace")
 
     
     time.sleep(1) # 移動後に1秒待つ
 
+    z-=200
+    if CheckIfNewPositionInWorkspace(x,y,z):
+        print("Moving")
+        arm.set_position(x,y,z, speed= speed, wait=True )
+    else: 
+        print("Position is out of workspace")
 
     
     time.sleep(1) # 移動後に1秒待つ
 
-
+    y+=200
+    if CheckIfNewPositionInWorkspace(x,y,z):
+        print("Moving")
+        arm.set_position(x,y,z, speed= speed, wait=True )
+    else: 
+        print("Position is out of workspace")
     
     time.sleep(1) # 移動後に1秒待つ
 

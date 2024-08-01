@@ -25,7 +25,7 @@ Sampleの流れを参考に,Z軸方向に300m, y軸方向に300mm, Z軸方向に
 
 arm = XArmAPI("192.168.1.199") #IP指定してロボットアームと接続。
 arm.motion_enable(enable=True) #モーション有効化して動かせるようにする。
-arm.set_mode(0) #サーボモードに設定する。
+arm.set_mode(0) #ポジションモードに設定する。
 arm.set_state(state=0) #ステート設定: 0 = スタートモーション
 
 speed = 100 #モーターのスピードを設定する。

@@ -48,8 +48,13 @@ def main():
     z = 400
 
 
+    z+=100 # 100mm(=10cm)
     if CheckIfNewPositionInWorkspace(x,y,z): #新しい値がworkspaceに存在するかを調べる。
         arm.set_position(x,y,z, speed= speed, wait=True ) #ポジションを指定する。
+
+
+    
+    
 
     
 
