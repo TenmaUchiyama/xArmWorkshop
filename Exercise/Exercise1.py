@@ -38,7 +38,7 @@ speed = 100 #モーターのスピードを設定する。
 def CheckIfNewPositionInWorkspace(x,y,z):
     if x > 680  or x < 300:
         return False
-    if y < -230 or y > 420:
+    if y < -330 or y > 420:
         return False
     if z < 94 or z > 550:
         return False
